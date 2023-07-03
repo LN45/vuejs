@@ -1,0 +1,26 @@
+<template>
+  <h1>Hello World</h1>
+
+  {{ name }}
+
+  <input type="text" v-model="name" @input="handleUpdate">
+
+  <!-- <p>{{ props.user.name }} {{ props.user.age }}</p> -->
+  <!-- <slot name="nom">
+  </slot>
+  <slot name="ages">
+  </slot> -->
+</template>
+
+<script setup>
+import {ref} from 'vue';
+
+const emit = defineEmits(['updateName']);
+
+const handleUpdate = (event) => {
+  emit('updateName', event.target.value);
+}
+
+const name = ref('');
+// const props = defineProps(["user"]);
+</script>
